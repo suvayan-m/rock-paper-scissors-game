@@ -3,207 +3,245 @@
 * {
   margin: 0px;
   padding: 0px;
+  box-sizing: border-box;
+  transition: all 0.15s;
 }
 
 body {
   font-family: "Press Start 2P", cursive;
   font-size: 24px;
+  transition: background-color 0.5s;
 }
 
-p {
-  display: inline-block;
+.text {
+  text-align: center;
+  margin: 20px auto;
 }
 
 button {
   font-family: "Press Start 2P", cursive;
-  padding: 12px;
   margin: 20px 16px;
-  font-size: 20px;
+  font-size: 24px;
   width: 300px;
   height: 80px;
   background-color: rgb(255, 255, 255);
   border: 5px black solid;
-  transition: all 0.5s;
 }
 
 button:hover {
   cursor: pointer;
 }
 
+.result {
+  margin-top: 40px;
+}
+
+.score {
+  background-color: rgb(180, 180, 180);
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 0px;
+}
+
 .flex {
-  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.inst {
-  text-align: center;
-  margin: 20px auto;
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
-.result {
-  margin: 20px 0px;
-}
+/*Responsive Design*/
 
-input {
-  font-family: "Press Start 2P", cursive;
-  font-size: 24px;
-  width: 100px;
-  border: none;
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-}
-
-@media only screen and (max-width: 1250px) {
-  button {
-    padding: 20px 10px;
-    margin: 20px 14px;
-    width: 280px;
-  }
-}
-
-@media only screen and (max-width: 950px) {
-  body {
-    font-size: 20px;
-  }
-
-  button {
-    padding: 20px 8px;
-    margin: 20px 12px;
-    width: 200px;
-    height: 70px;
-    font-size: 17px;
-    border-width: 3px;
-  }
-
-  input {
-    font-size: 20px;
-    width: 50px;
-  }
-}
-
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 1200px) {
   body {
     font-size: 18px;
   }
 
-  button {
-    padding: 18px 6px;
-    margin: 18px 10px;
-    width: 180px;
-    height: 65px;
-    font-size: 15px;
-    border-width: 3px;
+  .text {
+    text-align: center;
+    margin: 18px auto;
   }
 
-  input {
+  button {
+    margin: 18px 16px;
     font-size: 18px;
-    width: 45px;
+    width: 220px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    border: 4px black solid;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+
+  .result {
+    margin-top: 38px;
+  }
+
+  .score {
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 0px;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flex-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }
 
-@media only screen and (max-width: 620px) {
+@media only screen and (max-width: 900px) {
   body {
     font-size: 14px;
   }
 
-  button {
-    padding: 14px 2px;
-    margin: 14px 6px;
-    width: 160px;
-    height: 45px;
-    font-size: 11px;
-    border-width: 2px;
+  .text {
+    text-align: center;
+    margin: 18px auto;
   }
 
-  input {
+  button {
+    margin: 16px 14px;
     font-size: 14px;
-    width: 46px;
+    width: 140px;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    border: 3px black solid;
+  }
+
+  .result {
+    margin-top: 36px;
+  }
+
+  .score {
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 0px;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flex-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }
 
 @media only screen and (max-width: 520px) {
   body {
-    font-size: 12px;
+    font-size: 10px;
+  }
+
+  .text {
+    text-align: center;
+    margin: 16px auto;
   }
 
   button {
-    padding: 10px 2px;
-    margin: 10px 5px;
-    width: 140px;
-    height: 35px;
-    font-size: 11px;
-    border-width: 2px;
+    margin: 14px 12px;
+    font-size: 10px;
+    width: 100px;
+    height: 30px;
+    background-color: rgb(255, 255, 255);
+    border: 2px black solid;
   }
 
-  input {
-    font-size: 12px;
-    width: 45px;
-  }
-}
-
-@media only screen and (max-width: 460px) {
-  body {
-    font-size: 12px;
+  .result {
+    margin-top: 34px;
   }
 
-  .flex-col {
-    flex-direction: column;
-    margin: auto;
+  .score {
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 0px;
+  }
+
+  .flex {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  button {
-    padding: 10px 2px;
-    margin: 10px 5px;
-    width: 140px;
-    height: 35px;
-    font-size: 11px;
-    border-width: 2px;
-  }
-
-  input {
-    font-size: 12px;
-    width: 45px;
+  .flex-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }
 
 @media only screen and (max-width: 380px) {
   body {
-    font-size: 12px;
+    font-size: 14px;
   }
 
-  .flex-col {
-    flex-direction: column;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .text {
+    text-align: center;
+    margin: 12px auto;
   }
 
   button {
-    padding: 10px 2px;
-    margin: 10px 5px;
+    margin: 6px 12px;
+    font-size: 14px;
     width: 140px;
-    height: 35px;
-    font-size: 11px;
-    border-width: 2px;
-  }
-
-  input {
-    font-size: 12px;
-    width: 30px;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    border: 2px black solid;
   }
 
   .result {
-    flex-direction: column;
-    margin: auto;
+    margin-top: 28px;
+  }
+
+  .score {
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 0px;
+  }
+
+  .flex {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+  }
+
+  .flex-col {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }
