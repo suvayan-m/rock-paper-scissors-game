@@ -9,7 +9,7 @@ const dispWin = document.getElementById("win");
 const dispLoss = document.getElementById("loss");
 const dispTie = document.getElementById("tie");
 
-const result = {
+const result = JSON.parse(localStorage.getItem("result")) || {
   win: 0,
   losses: 0,
   ties: 0,
@@ -20,7 +20,7 @@ const computerMove = function () {
   let move = undefined;
   if (random < 1 / 3) {
     move = "rock";
-    btnCompMove.innerHTML = "Rock🤘";
+    btnCompMove.innerHTML = "Rock✊";
   } else if (random > 1 / 3 && random < 2 / 3) {
     move = "paper";
     btnCompMove.innerHTML = "Paper🧻";
@@ -32,16 +32,19 @@ const computerMove = function () {
 };
 
 const displayResult = function () {
-  dispWin.value = result.win;
-  dispLoss.value = result.losses;
-  dispTie.value = result.ties;
+  dispWin.innerHTML = result.win;
+  dispLoss.innerHTML = result.losses;
+  dispTie.innerHTML = result.ties;
 };
+displayResult();
 
 const reset = function () {
   result.win = 0;
   result.losses = 0;
   result.ties = 0;
+  document.body.style.backgroundColor = "#fff";
   btnCompMove.innerHTML = "🤔!?";
+  localStorage.removeItem("result");
   displayResult();
 };
 
@@ -50,28 +53,38 @@ const checkWinner = function (playerMove) {
   if (playerMove === "rock") {
     if (compMove === "rock") {
       result.ties++;
+      document.body.style.backgroundColor = "#f9e076";
     } else if (compMove === "paper") {
       result.losses++;
+      document.body.style.backgroundColor = "#bc544b";
     } else if (compMove === "scissors") {
       result.win++;
+      document.body.style.backgroundColor = "#5dbb63";
     }
   } else if (playerMove === "paper") {
     if (compMove === "rock") {
       result.win++;
+      document.body.style.backgroundColor = "#5dbb63";
     } else if (compMove === "paper") {
       result.ties++;
+      document.body.style.backgroundColor = "#f9e076";
     } else if (compMove === "scissors") {
       result.losses++;
+      document.body.style.backgroundColor = "#bc544b";
     }
   } else if (playerMove === "scissors") {
     if (compMove === "rock") {
       result.losses++;
+      document.body.style.backgroundColor = "#bc544b";
     } else if (compMove === "paper") {
       result.win++;
+      document.body.style.backgroundColor = "#5dbb63";
     } else if (compMove === "scissors") {
       result.ties++;
+      document.body.style.backgroundColor = "#f9e076";
     }
   }
+  localStorage.setItem("result", JSON.stringify(result));
   displayResult();
 };
 
