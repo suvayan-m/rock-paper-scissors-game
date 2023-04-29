@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock - Paper - Scissors</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="inst">SELECT YOUR MOVE</div>
+
+    <div class="flex flex-col">
+      <button class="rock">Rock🤘</button>
+      <button class="paper">Paper🧻</button>
+      <button class="scissors">Scissors✂</button>
+    </div>
+
+    <div class="inst">V/S</div>
+
+    <div class="flex">
+      <button class="comp-move">🤔!?</button>
+    </div>
+
+    <div class="flex result">
+      <p>Wins:</p>
+      <input type="number" name="win" id="win" disabled />
+      <p>Losses:</p>
+      <input type="number" name="loss" id="loss" disabled />
+      <p>Ties:</p>
+      <input type="number" name="tie" id="tie" disabled />
+    </div>
+
+    <div class="flex">
+      <button class="reset">Reset</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
