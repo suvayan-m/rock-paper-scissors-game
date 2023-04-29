@@ -8,37 +8,37 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="inst">SELECT YOUR MOVE</div>
+    <div class="text">SELECT YOUR MOVE</div>
 
-    <div class="flex flex-col">
-      <button class="rock">Rock🤘</button>
+    <div class="flex">
+      <button class="rock">Rock✊</button>
       <button class="paper">Paper🧻</button>
       <button class="scissors">Scissors✂</button>
     </div>
 
-    <div class="inst">V/S</div>
+    <div class="text">V/S</div>
 
     <div class="flex">
       <button class="comp-move">🤔!?</button>
     </div>
 
     <div class="flex result">
-      <div>
-        <p>Wins:</p>
-        <input type="number" name="win" id="win" disabled />
+      <div class="flex-col">
+        <div>Wins:</div>
+        <div id="win" class="score">0</div>
       </div>
-      <div>
-        <p>Losses:</p>
-        <input type="number" name="loss" id="loss" disabled />
+      <div class="flex-col">
+        <div>Losses:</div>
+        <div id="loss" class="score">0</div>
       </div>
-      <div>
-        <p>Ties:</p>
-        <input type="number" name="tie" id="tie" disabled />
+      <div class="flex-col">
+        <div>Ties:</div>
+        <div id="tie" class="score">0</div>
       </div>
     </div>
 
     <div class="flex">
-      <button class="reset">Reset</button>
+      <button class="reset">💀Reset</button>
     </div>
 
     <script src="script.js"></script>
