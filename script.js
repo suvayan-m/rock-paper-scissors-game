@@ -4,10 +4,10 @@ const btnRock = document.querySelector(".rock");
 const btnPaper = document.querySelector(".paper");
 const btnScissors = document.querySelector(".scissors");
 const btnReset = document.querySelector(".reset");
-const btnCompMove = document.querySelector(".comp-move");
-const dispWin = document.getElementById("win");
-const dispLoss = document.getElementById("loss");
-const dispTie = document.getElementById("tie");
+const btnCompMove = document.querySelector(".move-c");
+const dispWin = document.querySelector(".win");
+const dispLoss = document.querySelector(".loss");
+const dispTie = document.querySelector(".draw");
 
 const result = JSON.parse(localStorage.getItem("result")) || {
   win: 0,
@@ -20,20 +20,34 @@ const computerMove = function () {
   let move = undefined;
   if (random < 1 / 3) {
     move = "rock";
-    btnCompMove.innerHTML = "Rock✊";
+    btnCompMove.innerHTML = "";
+    btnCompMove.insertAdjacentHTML(
+      "afterbegin",
+      `<i class="fa-solid fa-hand-fist"></i>`
+    );
   } else if (random > 1 / 3 && random < 2 / 3) {
     move = "paper";
-    btnCompMove.innerHTML = "Paper🧻";
+    btnCompMove.innerHTML = "";
+    btnCompMove.insertAdjacentHTML(
+      "afterbegin",
+      `<i class="fa-solid fa-hand"></i>`
+    );
   } else {
     move = "scissors";
-    btnCompMove.innerHTML = "Scissors✂";
+    btnCompMove.innerHTML = "";
+    btnCompMove.insertAdjacentHTML(
+      "afterbegin",
+      `<i class="fa-solid fa-hand-scissors"></i>`
+    );
   }
   return move;
 };
 
 const displayResult = function () {
   dispWin.innerHTML = result.win;
+
   dispLoss.innerHTML = result.losses;
+
   dispTie.innerHTML = result.ties;
 };
 displayResult();
@@ -43,7 +57,11 @@ const reset = function () {
   result.losses = 0;
   result.ties = 0;
   document.body.style.backgroundColor = "#fff";
-  btnCompMove.innerHTML = "🤔!?";
+  btnCompMove.innerHTML = "";
+  btnCompMove.insertAdjacentHTML(
+    "afterbegin",
+    `<i class="fa-solid fa-face-smile"></i>`
+  );
   localStorage.removeItem("result");
   displayResult();
 };
@@ -53,35 +71,62 @@ const checkWinner = function (playerMove) {
   if (playerMove === "rock") {
     if (compMove === "rock") {
       result.ties++;
-      document.body.style.backgroundColor = "#f9e076";
+      document.body.style.backgroundColor = "#ffeaa7";
+      dispTie.closest(".result").classList.add("stats");
+      dispWin.closest(".result").classList.remove("stats");
+      dispLoss.closest(".result").classList.remove("stats");
     } else if (compMove === "paper") {
       result.losses++;
-      document.body.style.backgroundColor = "#bc544b";
+      document.body.style.backgroundColor = "#fab1a0";
+      dispTie.closest(".result").classList.remove("stats");
+      dispWin.closest(".result").classList.remove("stats");
+      dispLoss.closest(".result").classList.add("stats");
     } else if (compMove === "scissors") {
       result.win++;
-      document.body.style.backgroundColor = "#5dbb63";
+      document.body.style.backgroundColor = "#55efc4";
+      dispTie.closest(".result").classList.remove("stats");
+      dispWin.closest(".result").classList.add("stats");
+      dispLoss.closest(".result").classList.remove("stats");
     }
   } else if (playerMove === "paper") {
     if (compMove === "rock") {
       result.win++;
-      document.body.style.backgroundColor = "#5dbb63";
+      document.body.style.backgroundColor = "#55efc4";
+      dispTie.closest(".result").classList.remove("stats");
+      dispWin.closest(".result").classList.add("stats");
+      dispLoss.closest(".result").classList.remove("stats");
     } else if (compMove === "paper") {
       result.ties++;
-      document.body.style.backgroundColor = "#f9e076";
+      document.body.style.backgroundColor = "#ffeaa7";
+      dispTie.closest(".result").classList.add("stats");
+      dispWin.closest(".result").classList.remove("stats");
+      dispLoss.closest(".result").classList.remove("stats");
     } else if (compMove === "scissors") {
       result.losses++;
-      document.body.style.backgroundColor = "#bc544b";
+      document.body.style.backgroundColor = "#fab1a0";
+      dispTie.closest(".result").classList.remove("stats");
+      dispWin.closest(".result").classList.remove("stats");
+      dispLoss.closest(".result").classList.add("stats");
     }
   } else if (playerMove === "scissors") {
     if (compMove === "rock") {
       result.losses++;
-      document.body.style.backgroundColor = "#bc544b";
+      document.body.style.backgroundColor = "#fab1a0";
+      dispTie.closest(".result").classList.remove("stats");
+      dispWin.closest(".result").classList.remove("stats");
+      dispLoss.closest(".result").classList.add("stats");
     } else if (compMove === "paper") {
       result.win++;
-      document.body.style.backgroundColor = "#5dbb63";
+      document.body.style.backgroundColor = "#55efc4";
+      dispTie.closest(".result").classList.remove("stats");
+      dispWin.closest(".result").classList.add("stats");
+      dispLoss.closest(".result").classList.remove("stats");
     } else if (compMove === "scissors") {
       result.ties++;
-      document.body.style.backgroundColor = "#f9e076";
+      document.body.style.backgroundColor = "#ffeaa7";
+      dispTie.closest(".result").classList.add("stats");
+      dispWin.closest(".result").classList.remove("stats");
+      dispLoss.closest(".result").classList.remove("stats");
     }
   }
   localStorage.setItem("result", JSON.stringify(result));

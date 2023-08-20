@@ -2,45 +2,91 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rock - Paper - Scissors</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Rock&dash;Paper&dash;Scissors &mdash; Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="./script.js"></script>
   </head>
   <body>
-    <div class="text">SELECT YOUR MOVE</div>
-
-    <div class="flex">
-      <button class="rock">Rock✊</button>
-      <button class="paper">Paper🧻</button>
-      <button class="scissors">Scissors✂</button>
-    </div>
-
-    <div class="text">V/S</div>
-
-    <div class="flex">
-      <button class="comp-move">🤔!?</button>
-    </div>
-
-    <div class="flex result">
-      <div class="flex-col">
-        <div>Wins:</div>
-        <div id="win" class="score">0</div>
+    <div class="container">
+      <div class="row mt-5 mb-5 mb-sm-5">
+        <div class="col">
+          <h1 class="text-center mb-2">Rock Paper Scissors</h1>
+          <h5 class="text-center">
+            <span class="result d-inline-block stats"
+              >Win: <span class="win">20</span></span
+            >
+            <span class="result d-inline-block"
+              >Loss: <span class="loss">20</span></span
+            ><span class="result d-inline-block"
+              >Draw: <span class="draw">20</span></span
+            >
+          </h5>
+        </div>
       </div>
-      <div class="flex-col">
-        <div>Losses:</div>
-        <div id="loss" class="score">0</div>
+
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <div
+            class="move move-c d-flex align-items-center justify-content-center"
+          >
+            <i class="fa-solid fa-face-smile"></i>
+          </div>
+        </div>
       </div>
-      <div class="flex-col">
-        <div>Ties:</div>
-        <div id="tie" class="score">0</div>
+
+      <div class="row my-3">
+        <div class="col d-flex justify-content-center versus">
+          <i class="fa-solid fa-gamepad"></i>
+        </div>
+      </div>
+
+      <div class="row mb-5">
+        <div class="col d-flex justify-content-center">
+          <div
+            class="move rock d-flex align-items-center justify-content-center"
+          >
+            <i class="fa-solid fa-hand-fist"></i>
+          </div>
+
+          <div
+            class="move paper mx-2 d-flex align-items-center justify-content-center"
+          >
+            <i class="fa-solid fa-hand"></i>
+          </div>
+
+          <div
+            class="move scissors d-flex align-items-center justify-content-center"
+          >
+            <i class="fa-solid fa-hand-scissors"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <button class="reset btn btn-danger fixed-bottom">Reset</button>
+        </div>
       </div>
     </div>
-
-    <div class="flex">
-      <button class="reset">💀Reset</button>
-    </div>
-
-    <script src="script.js"></script>
   </body>
 </html>
